@@ -3,7 +3,7 @@ const plusFigure = (offset: number) => [
   [1, offset + 1],
   [2, offset + 1],
   [1, offset],
-  [1, offset + 2],
+  [1, offset + 1],
 ];
 
 export default plusFigure;
