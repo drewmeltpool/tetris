@@ -3,7 +3,7 @@ import Tetris from './src/Tetris';
 import TetrisScreen from './src/TetrisScreen';
 
 const logTetrisToTextFormat = (landscape: string[][]) => {
-  console.info('~~~~~~~~~~~~~~~~~~~~~~');
+  console.info('~~~~~~~~~~~~~~~~~~~');
   console.info(landscape.map((row) => row.join(' ')).join('\n'));
 };
 
