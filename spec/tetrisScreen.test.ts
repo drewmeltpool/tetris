@@ -2,8 +2,14 @@ import TetrisScreen from '../src/TetrisScreen';
 
 describe('TetrisScreen', () => {
   it('init screen map', () => {
-    const screen = new TetrisScreen(1, 1);
+    const expected = [
+      ['.', '.', '.'],
+      ['.', '.', '.'],
+      ['.', '.', '.'],
+    ];
 
-    expect(screen.init()).toEqual([['.']]);
+    const actual = new TetrisScreen(1, 1).init();
+
+    expect(actual).toEqual(expected);
   });
 });

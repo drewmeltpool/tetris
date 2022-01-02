@@ -3,53 +3,74 @@ import Tetris from '../src/Tetris';
 import plusFigure from '../src/plusFigure';
 
 describe('Tetris', () => {
-  it('Create landscape', () => {
-    const screen = new TetrisScreen(1, 1).init();
+  const emptyLandscape = [
+    ['.', '.', '.', '.'],
+    ['.', '.', '.', '.'],
+    ['.', '.', '.', '.'],
+    ['.', '.', '.', '.'],
+  ];
+
+  it('Create empty landscape', () => {
+    const screen = new TetrisScreen(4, 4).init();
     const tetris = new Tetris(screen);
 
-    expect(tetris.landscape).toEqual([['.']]);
+    const { landscape: actual } = tetris;
+
+    expect(actual).toEqual(emptyLandscape);
   });
 
-  it('Set figure', () => {
+  it('Set figure to landscape', () => {
+    const expected = [
+      ['.', 'p', '.'],
+      ['p', 'p', 'p'],
+      ['.', 'p', '.'],
+    ];
+
     const screen = new TetrisScreen(3, 3).init();
     const tetris = new Tetris(screen);
 
     tetris.setFigure(plusFigure(0));
 
-    expect(tetris.landscape).toEqual([
+    const { landscape: actual } = tetris;
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('Drop one level figure', () => {
+    const expected = [
+      ['.', '.', '.'],
       ['.', 'p', '.'],
       ['p', 'p', 'p'],
       ['.', 'p', '.'],
-    ]);
-  });
+    ];
 
-  it('drop one level figure', () => {
-    const screen = new TetrisScreen(3, 4).init();
+    const screen = new TetrisScreen(3, 3).init();
     const tetris = new Tetris(screen);
 
     tetris.setFigure(plusFigure(0));
     tetris.dropOneLevelFigure();
 
-    expect(tetris.landscape).toEqual([
-      ['.', '.', '.'],
-      ['.', 'p', '.'],
-      ['p', 'p', 'p'],
-      ['.', 'p', '.'],
-    ]);
+    const { landscape: actual } = tetris;
+
+    expect(actual).toEqual(expected);
   });
 
-  it('drop down figure', () => {
+  it('Drop down figure', () => {
+    const expected = [
+      ['.', '.', '.'],
+      ['.', '#', '.'],
+      ['#', '#', '#'],
+      ['.', '#', '.'],
+    ];
+
     const screen = new TetrisScreen(3, 4).init();
     const tetris = new Tetris(screen);
 
     tetris.setFigure(plusFigure(0));
     tetris.dropFigure();
 
-    expect(tetris.landscape).toEqual([
-      ['.', '.', '.'],
-      ['.', '#', '.'],
-      ['#', '#', '#'],
-      ['.', '#', '.'],
-    ]);
+    const { landscape: actual } = tetris;
+
+    expect(actual).toEqual(expected);
   });
 });
