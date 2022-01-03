@@ -44,7 +44,7 @@ describe('Tetris', () => {
       ['.', 'p', '.'],
     ];
 
-    const screen = new TetrisScreen(3, 3).init();
+    const screen = new TetrisScreen(3, 4).init();
     const tetris = new Tetris(screen);
 
     tetris.setFigure(plusFigure(0));

@@ -6,9 +6,10 @@ describe('TetrisScreen', () => {
       ['.', '.', '.'],
       ['.', '.', '.'],
       ['.', '.', '.'],
+      ['.', '.', '.'],
     ];
 
-    const actual = new TetrisScreen(1, 1).init();
+    const actual = new TetrisScreen(3, 4).init();
 
     expect(actual).toEqual(expected);
   });
