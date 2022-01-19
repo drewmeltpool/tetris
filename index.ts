@@ -1,10 +1,10 @@
-import plusFigure from 'src/plusFigure';
+import plusFigure from './src/plusFigure';
 import Tetris from './src/Tetris';
 import TetrisScreen from './src/TetrisScreen';
 
 const logTetrisToTextFormat = (landscape: string[][]) => {
   console.info('~~~~~~~~~~~~~~~~~~~');
-  console.info(landscape.map((row) => row.join(' ')).join('\n'));
+  console.info(landscape.map((row) => row.join('')).join('\n'));
 };
 
 const screen = new TetrisScreen(7, 8).init();
