@@ -3,13 +3,13 @@ class Tetris {
 
   public constructor(private _landscape: string[][]) {}
 
-  public clearFigure(figure?: number[][]) {
-    figure?.forEach(([x, y]) => (this._landscape[x][y] = '.'));
-  }
-
   public landFigure(figure?: number[][]) {
     figure?.forEach(([x, y]) => (this._landscape[x][y] = '#'));
     this._figure = undefined;
+  }
+
+  public clearFigure(figure?: number[][]) {
+    figure?.forEach(([x, y]) => (this._landscape[x][y] = '.'));
   }
 
   public setFigure(figure?: number[][]) {
